@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {Link,BrowserRouter as Router} from "react-router-dom";
 import Rating from "./Rating";
 import Pagination from "./Pagination";
 import products from "../../data/Products";
@@ -7,6 +7,7 @@ import products from "../../data/Products";
 const ShopSection = () => {
     return (
         <>
+        <Router>
         <div className="container">
             <div className="section">
                 <div className="row">
@@ -42,6 +43,7 @@ const ShopSection = () => {
                 </div>
             </div>
         </div>
+        </Router>
         </>
     );
 };
