@@ -27,7 +27,7 @@ export default function CartScreen() {
             <i className="fas fa-times"></i>
           </div>
           <div className="cart-image col-md-3">
-            <img src="./images/1.png" alt="nike shoe image" srcset="" />
+            <img src="./images/1.png" alt="nike shoe" />
           </div>
           <div className="cart-text col-md-5 d-flex align-items-center">
             <Link to="#">
