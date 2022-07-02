@@ -1,4 +1,5 @@
 import './App.css';
+import './responsive.css';
 import HomeScreen from './screens/HomeScreen';
 import {BrowserRouter as Router,Route,Routes} from 'react-router-dom'
 import CartScreen from './screens/CartScreen';
