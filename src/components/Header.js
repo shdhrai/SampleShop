@@ -1,15 +1,15 @@
-import React from 'react';
+import React from "react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <div>
       <div className="Announcement">
-        <div className='container'>
-          <div className='row'>
-            <div className='col-md-6 d-flex align-items-center display-none'>
-              <p>+91 7705015947</p>
-              <p>details@decor.com</p>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-6 d-flex align-items-center display-none">
+              <p>+91 9876543210</p>
+              <p>details@ShopForHome.com</p>
             </div>
             <div className=" col-12 col-lg-6 justify-content-center justify-content-lg-end">
               <Link to="">
@@ -36,15 +36,15 @@ const Header = () => {
         <div className="container">
           <div className="pc-header">
             <div className="row">
-              <div className='col-md-3 col-4 d-flex align-items-center'>
-                <Link className='navbar-brand' to="/">
-                  <img alt="logo" src="/images/logo.jpg"/>
+              <div className="col-md-3 col-4 d-flex align-items-center">
+                <Link className="navbar-brand" to="/">
+                  <img alt="logo" src="/images/logo.png" />
                 </Link>
               </div>
-              <div className='col-md-6 col-8 d-flex align-items-center'>
-                <form className='input-group'>
+              <div className="col-md-6 col-8 d-flex align-items-center">
+                <form className="input-group">
                   <input
-                    type ="search"
+                    type="search"
                     className="form-control rounded search"
                     placeholder="Search"
                   />
@@ -54,32 +54,73 @@ const Header = () => {
                 </form>
               </div>
               <div className="col-md-3 d-flex align-items-center justify-content-end">
-                <div className='btn-group'>
+                <div className="dropdown">
                   <button
-                    type ="button"
-                    className="name-button dropdown-toggle"
-                    data-toggle = "dropdown"
-                    aria-haspopup ="true"
-                    aria-expanded = "false"
-                    >
-                      Hi! Admin G2
-                    </button>
-                    <div className='dropdown-menu'>
-                      <Link className='dropdown-item' to="/profile">
+                    className="btn btn-dark dropdown-toggle mx-3"
+                    type="button"
+                    id="dropdownMenuButton1"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Hi user
+                  </button>
+                  <ul
+                    className="dropdown-menu"
+                    aria-labelledby="dropdownMenuButton1"
+                  >
+                    <li>
+                      <Link className="dropdown-item" to="#">
                         Profile
                       </Link>
-                      <Link className='dropdown-item' to="#">
-                        Logout
+                    </li>
+                    <li>
+                      <Link className="dropdown-item" to="#">
+                        LogOut
                       </Link>
-                    </div>
+                    </li>
+                  </ul>
+                  <Link to="/cart">
+                  <i className="fas fa-shopping-bag"></i>
+                  <span className="badge">4</span>
+                </Link>
+                </div>
+              </div>
+              {/* <div className="col-md-3 d-flex align-items-center justify-content-end">
+                <div className="btn-group dropdown">
+                  <button
+                    type="button"
+                    className="name-button dropdown-toggle"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    Hi user
+                  </button>
+                  <div className="dropdown-menu">
+                    <ul
+                      className="dropdown-menu"
+                      aria-labelledby="dropdownMenuButton1"
+                    >
+                      <li>
+                        <Link className="dropdown-item" to="#">
+                          Profile
+                        </Link>
+                      </li>
+                      <li>
+                        <Link className="dropdown-item" to="#">
+                          Logout
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
 
                 <Link to="/cart">
-                  <i className='fas fa-shopping-bag'></i>
-                  <span className='badge'>4</span>
+                  <i className="fas fa-shopping-bag"></i>
+                  <span className="badge">4</span>
                 </Link>
-              </div>
-            </div>    
+              </div> */}
+            </div>
           </div>
         </div>
       </div>

@@ -6,17 +6,17 @@ const Footer = () => {
       <div className="justify-content-center d-flex">
         <div className="card-name">
           <img
-            alt ="mastercard"
-            src ="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Mastercard_2019_logo.svg/1280px-Mastercard_2019_logo.svg.png"
+            alt ="wipro logo"
+            src ={process.env.PUBLIC_URL + '/images/wipro.jpg'} 
           />
         </div>
         <div className="card-name">
           <img
-            alt ="visa"
-            src ="https://1000logos.net/wp-content/uploads/2021/11/VISA-logo.png"
+            alt ="Great Learning"
+            src ={process.env.PUBLIC_URL + '/images/Great_Learning.jpg'} 
           />
         </div>
-        <div className="card-name">
+        {/* <div className="card-name">
           <img
             alt ="paypal"
             src ="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/1920px-PayPal.svg.png"
@@ -33,7 +33,7 @@ const Footer = () => {
             alt ="discover"
             src ="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Discover_Card_logo.svg/1920px-Discover_Card_logo.svg.png"
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );

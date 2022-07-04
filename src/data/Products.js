@@ -1,8 +1,8 @@
 const products=[
     {
        _id:"1",
-       name:"Velcro Ballerinas For Girls(Pink)",
-       image:"/images/6.png",
+       name:"King Size bed",
+       image:"",
        description:
          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
        price:89,
@@ -12,8 +12,8 @@ const products=[
     },
     {                    
        _id:"2",
-       name:"Velcro Sneakers For Boys&Girls(Blue)",
-       image:"/images/5.png",
+       name:"Dinning table",
+       image:"",
        description:
          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
        price:599,
@@ -23,8 +23,8 @@ const products=[
    },
    {
     _id:"3",
-    name:"Sesame Street Unisex-Child ELMO Puppet slipper",
-    image:"/images/4.png",
+    name:"Bathtub",
+    image:"",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     price:929,
@@ -34,8 +34,8 @@ const products=[
    },
    {
     _id:"4",
-    name:"Lace Casual Boots For Boys&Girls(Tan)",
-     image:"/images/3.png",
+    name:"Jaguar Lights",
+     image:"",
    description:
      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
    price:399,
@@ -45,8 +45,8 @@ const products=[
    },
    {
    _id:"5",
-   name:"Lace Walking Shoes For Boys&Girls(Pink)",
-   image:"/images/2.png",
+   name:"Jaguar showers",
+   image:"",
    description:
      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
    price:49,
@@ -56,8 +56,8 @@ const products=[
    },
    {
     _id:"6",
-    name:"Women Red Heels Sandal",
-     image:"/images/1.png",
+    name:"Godrej cabinets",
+     image:"",
      description:
        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
      price:29,
