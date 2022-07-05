@@ -1,6 +1,5 @@
 const products=[
     {
-       _id:"1",
        name:"King Size bed",
        image:"",
        description:
@@ -11,7 +10,6 @@ const products=[
        numReviews:4,
     },
     {                    
-       _id:"2",
        name:"Dinning table",
        image:"",
        description:
@@ -22,7 +20,6 @@ const products=[
        numReviews:2,
    },
    {
-    _id:"3",
     name:"Bathtub",
     image:"",
     description:
@@ -33,7 +30,6 @@ const products=[
     numReviews:3,
    },
    {
-    _id:"4",
     name:"Jaguar Lights",
      image:"",
    description:
@@ -44,7 +40,6 @@ const products=[
    numReviews:9,
    },
    {
-   _id:"5",
    name:"Jaguar showers",
    image:"",
    description:
@@ -55,7 +50,6 @@ const products=[
    numReviews:2,
    },
    {
-    _id:"6",
     name:"Godrej cabinets",
      image:"",
      description:
