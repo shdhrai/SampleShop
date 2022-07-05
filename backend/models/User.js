@@ -15,11 +15,16 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
+    isAdmin: {
+        type: Boolean,
+        required:true,
+        default: false,
+    },
     date: {
         type: Date,
         timestamps:true,
         default: Date.now
-    }
+    }    
 });
 module.exports  = mongoose.model('user', UserSchema);
 
