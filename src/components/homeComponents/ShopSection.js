@@ -31,7 +31,7 @@ const ShopSection = () => {
                                                value={product.rating}
                                                text ={`${product.numReviews}reviews`}
                                                />
-                                               <h3>${product.price}</h3>
+                                               <h3>₹{product.price}</h3>
                                         </div>
                                     </div>
                                 </div>       
