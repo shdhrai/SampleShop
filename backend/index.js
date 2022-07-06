@@ -2,6 +2,9 @@ import  './config.js';
 import express from 'express'
 import dotenv from 'dotenv';
 import cors from 'cors';
+import productRouter from "./routes/productRoute.js";
+import userRouter from "./routes/userRouter.js";
+
 import { errorHandler, notFound } from './Middleware/Error.js';
 dotenv.config();
 
