@@ -20,22 +20,12 @@ const UserSchema = new Schema({
         required:true,
         default: false,
     },
-<<<<<<< HEAD:backend/models/User.js
     date: {
         type: Date,
         timestamps:true,
         default: Date.now
-    }    
+    }
 });
 const User = mongoose.model('user', UserSchema);
-=======
-},
-{
-    timestamps:true,
-}
-);
-
-module.exports  = mongoose.model('user', UserSchema);
->>>>>>> f0b11e403b1947dff7f0b6775a8bf3b9f5e09733:backend/Models/UserModel.js
 
 export default User;
