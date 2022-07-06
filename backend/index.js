@@ -2,13 +2,7 @@ import  './config.js';
 import express from 'express'
 import dotenv from 'dotenv';
 import cors from 'cors';
-<<<<<<< HEAD
-import productRouter from "./routes/productRoute.js";
-import userRouter from "./routes/userRouter.js";
-
-=======
 import { errorHandler, notFound } from './Middleware/Error.js';
->>>>>>> f0b11e403b1947dff7f0b6775a8bf3b9f5e09733
 dotenv.config();
 
 const app = express();
