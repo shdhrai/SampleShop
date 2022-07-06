@@ -301,3 +301,13 @@ textarea:focus {
   display: inline-block;
   max-height: 500px;
 }
+.btn-dark{
+  background-color: #cd7555;
+}
+.btn-dark:hover{
+  background-color: #f79c7a;
+}
+.dropdown-item{
+  background-color: #cd7555;
+  border:1px solid black;
+}
