@@ -1,7 +1,7 @@
 const products=[
     {
        name:"King Size bed",
-       image:"",
+       image:"1.jpg",
        description:
          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
        price:89,
@@ -9,9 +9,9 @@ const products=[
        rating:4,
        numReviews:4,
     },
-    {                    
+    {                   
        name:"Dinning table",
-       image:"",
+       image:"2.jpg",
        description:
          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
        price:599,
@@ -21,7 +21,7 @@ const products=[
    },
    {
     name:"Bathtub",
-    image:"",
+    image:"3.jpg",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     price:929,
@@ -31,7 +31,7 @@ const products=[
    },
    {
     name:"Jaguar Lights",
-     image:"",
+     image:"4.jpg",
    description:
      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
    price:399,
@@ -41,7 +41,7 @@ const products=[
    },
    {
    name:"Jaguar showers",
-   image:"",
+   image:"5.jpg",
    description:
      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
    price:49,
@@ -51,7 +51,7 @@ const products=[
    },
    {
     name:"Godrej cabinets",
-     image:"",
+     image:"6.jpg",
      description:
        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
      price:29,

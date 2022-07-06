@@ -1,10 +1,19 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import {Link} from "react-router-dom";
 import Rating from "./Rating";
 import Pagination from "./Pagination";
-import products from "../../data/Products";
+import axios from 'axios';
 
 const ShopSection = () => {
+    const [products,setProducts]=useState([]);
+
+    useEffect(()=>{
+        const fetchproducts=async()=>{
+            const {data}=await axios.get("/api/products");
+            setProducts(data);
+        }
+        fetchproducts();
+    },[]);
     return (
         <>
         <div className="container">

@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from'mongoose';
 const {Schema} = mongoose;
 
 const reviewSchema=new Schema({
@@ -61,5 +61,6 @@ const ProductSchema = new Schema({
         default: Date.now
     }
 });
-module.exports  = mongoose.model('product', ProductSchema);
+const Product  = mongoose.model('product', ProductSchema);
 
+export default Product;

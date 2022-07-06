@@ -1,22 +1,24 @@
-import './config.js';
+import  './config.js';
 import express from 'express'
 import dotenv from 'dotenv';
 import cors from 'cors';
+import productRouter from "./routes/productRoute.js";
+import userRouter from "./routes/userRouter.js";
+
 dotenv.config();
 
-const app = express()
+const app = express();
 const port = process.env.PORT;
 
  
-app.use(cors())
-app.use(express.json())
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-
+app.use("/api/products", productRouter);
 //Giving different routes used 
-// app.use('/api/user',require('./routes/user'));
-// app.use('/api/admin/user',require('./routes/cruduser'));
-// app.use('/api/attendance',require('./routes/attendance'));
-// app.use('/api/product', require('./routes/notes'))s
+app.use("/api/users", userRouter);
+
 
 //Listening at 4000 ||1000 port
 app.listen(port||1000, () => {
