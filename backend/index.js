@@ -2,6 +2,7 @@ import './config.js';
 import express from 'express'
 import dotenv from 'dotenv';
 import cors from 'cors';
+import { errorHandler, notFound } from './Middleware/Error.js';
 dotenv.config();
 
 const app = express()
@@ -17,6 +18,12 @@ app.use(express.json())
 // app.use('/api/admin/user',require('./routes/cruduser'));
 // app.use('/api/attendance',require('./routes/attendance'));
 // app.use('/api/product', require('./routes/notes'))s
+
+
+// ERROR HANDLER 
+app.use(notFound);
+app.use(errorHandler);
+
 
 //Listening at 4000 ||1000 port
 app.listen(port||1000, () => {
