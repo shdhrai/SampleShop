@@ -2,18 +2,18 @@ import React,{useState,useEffect} from "react";
 import {Link} from "react-router-dom";
 import Rating from "./Rating";
 import Pagination from "./Pagination";
-import axios from 'axios';
+import {useDispatch,useSelector} from "react-redux";
+import { listProduct } from "../../Redux/Actions/ProductActions";
 
 const ShopSection = () => {
-    const [products,setProducts]=useState([]);
+    const dispatch = useDispatch();
 
-    useEffect(()=>{
-        const fetchproducts=async()=>{
-            const {data}=await axios.get("/api/products");
-            setProducts(data);
-        }
-        fetchproducts();
-    },[]);
+    const productList = useSelector((state)=>state.productList)
+    const {loading,error,products} = productList;
+
+    useEffect(() =>{
+        dispatch(listProduct());
+    },[dispatch]);
     return (
         <>
         <div className="container">
