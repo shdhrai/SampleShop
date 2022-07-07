@@ -3,11 +3,12 @@ import User from "../models/UserModel.js";
 import expressAsyncHandler from "express-async-handler";
 import bcrypt from 'bcryptjs'
 import { generateToken } from "../utils.js";
+import users from "../data/users.js";
 
 const userRouter = express.Router();
 
 userRouter.post(
-  "/signin",
+  "/login",
   expressAsyncHandler(async (req, res) => {
     const user = await User.findOne({ email: req.body.email });
     if (user) {
@@ -18,11 +19,20 @@ userRouter.post(
           email: user.email,
           isAdmin: user.isAdmin,
           token: generateToken(user),
+          createdAt: user.createdAt,
         });
         return;
       }
     }
-    res.status(401).send({ message: "invald email or password" });
+    res.status(401).send({ message: "invald email or password api called" });
+  })
+);
+
+userRouter.post(
+  "/seed",
+  expressAsyncHandler(async (req, res) => {
+    const createUsers = await User.insertMany(users);
+    res.send({ createUsers });
   })
 );
 
