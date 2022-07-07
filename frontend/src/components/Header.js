@@ -1,13 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
+import { logout } from "../Redux/Actions/UserActions.js";
 
 const Header = () => {
+
+  const dispatch = useDispatch();
+
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
+
+  const logoutHandler = () => {
+    dispatch(logout());
+  };
 
   return (
     <div>
@@ -60,7 +68,8 @@ const Header = () => {
                   </button>
                 </form>
               </div>
-              <div className="col-md-3 d-flex align-items-center justify-content-end">
+              <div className="col-md-3 d-flex align-items-center justify-content-end Login-Register">
+{userInfo ?(
                 <div className="dropdown">
                   <button
                     className="btn btn-dark dropdown-toggle mx-3"
@@ -69,7 +78,7 @@ const Header = () => {
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    {userInfo.name}
+                    Hi {userInfo.name}
                   </button>
                   <ul
                     className="dropdown-menu"
@@ -81,52 +90,23 @@ const Header = () => {
                       </Link>
                     </li>
                     <li>
-                      <Link className="dropdown-item" to="#">
+                      <Link className="dropdown-item" to="#" onClick={logoutHandler}>
                         LogOut
                       </Link>
                     </li>
                   </ul>
+                  </div>
+):(
+<>
+                    <Link to="/register">Register</Link>
+                    <Link to="/login">Login</Link>
+                  </>
+)}
                   <Link to="/cart">
                   <i className="fas fa-shopping-bag"></i>
                   <span className="badge">{cartItems.length}</span>
                 </Link>
-                </div>
               </div>
-              {/* <div className="col-md-3 d-flex align-items-center justify-content-end">
-                <div className="btn-group dropdown">
-                  <button
-                    type="button"
-                    className="name-button dropdown-toggle"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    Hi user
-                  </button>
-                  <div className="dropdown-menu">
-                    <ul
-                      className="dropdown-menu"
-                      aria-labelledby="dropdownMenuButton1"
-                    >
-                      <li>
-                        <Link className="dropdown-item" to="#">
-                          Profile
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="dropdown-item" to="#">
-                          Logout
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-                <Link to="/cart">
-                  <i className="fas fa-shopping-bag"></i>
-                  <span className="badge">4</span>
-                </Link>
-              </div> */}
             </div>
           </div>
         </div>

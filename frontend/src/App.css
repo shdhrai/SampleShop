@@ -311,3 +311,64 @@ textarea:focus {
   background-color: #cd7555;
   border:1px solid black;
 }
+.Login-Register a {
+  text-transform: uppercase;
+  font-size: 15px;
+  margin-right: 2rem;
+  position: relative;
+}
+.Login-Register a:last-child {
+  margin-right: 0;
+}
+ .Login-Register a,
+  .search-button {
+    font-size: 15px;
+  }
+ .login-center {
+    padding: 20px 0;
+  }
+.Login p {
+  margin-top: 30px;
+}
+.Login p a {
+  color: #7a7a7a;
+}
+.Login2 button,
+.Login2 button a,
+.Login button,
+.Login button a {
+  text-transform: uppercase;
+  color: #fff;
+}
+.Login input:focus {
+  outline: 0;
+}
+.Login2 button,
+.Login button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 20px 0;
+  border: 0;
+  background-color: #d55527;
+  border-radius: 5px;
+}
+.Login input {
+  width: 100%;
+  padding: 20px;
+  margin-top: 20px;
+  border: 1px solid #e4e4e4;
+  border-radius: 5px;
+  color: #8a8a8a;
+}
+.Login,
+.Login2 {
+  background: #fff;
+  border-radius: 5px;
+  position: relative;
+  padding: 35px 30px 30px;
+  box-shadow: 0 1px 11px hsla(0, 0%, 65.9%, 0.27);
+  text-align: center;
+}
+.login-center {
+  padding: 50px 0;
+}

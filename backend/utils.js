@@ -1,4 +1,5 @@
 import jwt from "jsonwebtoken";
+const JWT_SECRET="shopforhomebyajandshashi";
 
 export const generateToken = (user) => {
   return jwt.sign(
@@ -21,7 +22,7 @@ export const isAuth = (req, res, next) => {
     const token = authorization.slice(7, authorization.length);
     jwt.verify(
       token,
-      process.env.JWT_SECRET || "somethingsecret",
+      JWT_SECRET,
       (err, decode) => {
         if (err) {
           res.status(401).send({ message: "invalid Token" });
