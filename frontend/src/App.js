@@ -13,7 +13,8 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<HomeScreen/>}/>
-        <Route path='/cart/:id?' element={<CartScreen/>}/>
+        <Route path='/cart/:id' element={<CartScreen/>}/>
+        <Route path='/cart' element={<CartScreen/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
         <Route path='/products/:id' element={<SingleProduct/>}/>

@@ -1,7 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const cart = useSelector((state) => state.cart);
+  const { cartItems } = cart;
+
+  //const userLogin = useSelector((state) => state.userLogin);
+  // const { userInfo } = userLogin;
+
   return (
     <div>
       <div className="Announcement">
@@ -62,7 +69,7 @@ const Header = () => {
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    Hi user
+                    AdminUser
                   </button>
                   <ul
                     className="dropdown-menu"
@@ -81,7 +88,7 @@ const Header = () => {
                   </ul>
                   <Link to="/cart">
                   <i className="fas fa-shopping-bag"></i>
-                  <span className="badge">4</span>
+                  <span className="badge">{cartItems.length}</span>
                 </Link>
                 </div>
               </div>

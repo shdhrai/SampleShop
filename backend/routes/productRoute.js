@@ -1,5 +1,5 @@
 import express from "express";
-// import products from '../data/Products.js'
+import products from '../data/Products.js'
 import expressAsyncHandler from "express-async-handler";
 import Product from "../Models/Product.js";
 
@@ -9,18 +9,19 @@ productRouter.get(
   "/",
   expressAsyncHandler(async (req, res) => {
     const products = await Product.find({});
+    console.log(products);
     res.send(products);
   })
 );
 
-// productRouter.post(
-//   "/seed",
-//   expressAsyncHandler(async (req, res) => {
-//     // await Product.remove({})
-//     const createProducts = await Product.insertMany(products);
-//     res.send({ createProducts });
-//   })
-// );
+productRouter.post(
+  "/seed",
+  expressAsyncHandler(async (req, res) => {
+    await Product.deleteMany({})
+    const createProducts = await Product.insertMany(products);
+    res.send({ createProducts });
+  })
+);
 
 productRouter.get(
   "/:id",
