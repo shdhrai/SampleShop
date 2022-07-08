@@ -3,9 +3,11 @@ import Sidebar from "./../components/sidebar";
 import Header from "./../components/Header";
 import EditProductMain from "./../components/products/EditproductMain";
 import products from "./../data/Products";
+import { useParams } from "react-router-dom";
 
-const ProductEditScreen = ({match}) => {
-    const productId = products.find((p) => p._id === match.params.id);
+const ProductEditScreen = () => {
+    const params=useParams();
+    const productId = products.find((p) => p._id === params.id);
     return (
         <>
             <Sidebar />
