@@ -6,14 +6,15 @@ import CartScreen from './screens/CartScreen';
 import Login from './screens/Login';
 import Register from './screens/Register';
 import SingleProduct from './screens/SingleProduct';
+import ShopSearchSection from './components/homeComponents/ShopSearchSection';
 
 function App() {
   return (
     <>
     <Router>
       <Routes>
-        <Route path='/' element={<HomeScreen/>}/>
-        <Route path='/search/:keyword' element={<HomeScreen/>}/>
+        <Route exact path='/' element={<HomeScreen/>}/>
+        <Route path='/search/:keyword' element={<ShopSearchSection />}/>
         <Route path='/cart/:id' element={<CartScreen/>}/>
         <Route path='/cart' element={<CartScreen/>}/>
         <Route path='/login' element={<Login/>}/>

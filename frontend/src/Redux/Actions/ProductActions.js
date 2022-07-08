@@ -9,6 +9,11 @@ import {
   PRODUCT_DETAILS_REQUEST,
   PRODUCT_DETAILS_SUCCESS,
 } from "../Constants/ProductConstants.js";
+import {
+  PRODUCT_SEARCH_FAIL,
+  PRODUCT_SEARCH_REQUEST,
+  PRODUCT_SEARCH_SUCCESS,
+} from "../Constants/ProductConstants.js";
 
 //product list
 export const listProduct = (keyword=" ") => async (dispatch) => {
@@ -40,6 +45,27 @@ export const listProductDetails = (id) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: PRODUCT_DETAILS_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message
+    });
+  }
+};
+
+
+//search product
+export const listSearchProduct = (keyword) => async (dispatch) => {
+  try {
+    dispatch({ type: PRODUCT_SEARCH_REQUEST });
+
+    console.log("actionkeyword"+keyword);
+    const { data } = await axios.get(`/api/products/search/${keyword}`);
+    dispatch({ type: PRODUCT_SEARCH_SUCCESS, payload: data });
+    console.log(data);
+  } catch (error) {
+    dispatch({
+      type: PRODUCT_SEARCH_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message

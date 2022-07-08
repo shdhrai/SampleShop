@@ -8,14 +8,7 @@ const productRouter = express.Router();
 productRouter.get(
   "/",
   expressAsyncHandler(async (req, res) => {
-    const keyword=req.query.keyword?{
-      name:{
-        $regex:req.query.keyword,
-        options:"i"
-      }
-    }
-    :{}
-    const products = await Product.find({...keyword});
+    const products = await Product.find({});
     res.send(products);
   })
 );
@@ -33,6 +26,18 @@ productRouter.get(
   "/:id",
   expressAsyncHandler(async (req, res) => {
     const product = await Product.findById(req.params.id);
+    if (product) {
+      res.send(product);
+    } else {
+      res.status(404).send({ message: "Product Not Found" });
+    }
+  })
+);
+
+productRouter.get(
+  "/search/:keyword",
+  expressAsyncHandler(async (req, res) => {
+    const product = await Product.find({name:{$regex:req.params.keyword, $options:'i'}});
     if (product) {
       res.send(product);
     } else {
