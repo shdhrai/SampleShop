@@ -2,13 +2,13 @@ import jwt from "jsonwebtoken";
 const JWT_SECRET="shopforhomebyajandshashi";
 
 export const fetchadmin=(req,res,next)=>{
-const token=req.header("auth-token");
-if(!token){
+const authorization=req.headers.authorization;
+if(!authorization){
     res.status(401).send({error:"Please Authenticate"})
 }
 try {
-    const data=jwt.verify(token,JWT_SECRET);
-req.admin=data.admin;
+    const data=jwt.verify(authorization,JWT_SECRET);
+req.user=data.user;
 next();
 } catch (error) {
     res.status(401).send({error:"Please Authenticate"})

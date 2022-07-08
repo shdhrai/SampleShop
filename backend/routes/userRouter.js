@@ -1,45 +1,73 @@
 import express from "express";
 import User from "../Models/UserModel.js";
 import expressAsyncHandler from "express-async-handler";
-import bcrypt from 'bcryptjs'
-import { generateToken, isAuth } from "../utils.js";
+import bcrypt from "bcryptjs";
 import users from "../data/users.js";
 import { body, validationResult } from "express-validator";
 import jwt from "jsonwebtoken";
-import {fetchuser} from '../Middleware/fetchuser.js'
+import { fetchuser } from "../Middleware/fetchuser.js";
+import { fetchadmin } from "../Middleware/fetchadmin.js";
 
-const JWT_SECRET="shopforhomebyajandshashi";
+const JWT_SECRET = "shopforhomebyajandshashi";
 
 const userRouter = express.Router();
 
+//login a user
+
+//creating route to login a user
 userRouter.post(
   "/login",
-  expressAsyncHandler(async (req, res) => {
-    const user = await User.findOne({ email: req.body.email });
-    if (user) {
-      if (bcrypt.compareSync(req.body.password, user.password)) {
-        res.send({
-          _id: user._id,
-          name: user.name,
-          email: user.email,
-          isAdmin: user.isAdmin,
-          token: generateToken(user),
-          createdAt: user.createdAt,
-        });
-        return;
-      }
+  [
+    body("email", "Enter a valid email").isEmail(),
+    body("password", "Password can't be blank").exists(),
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
     }
-    res.status(401).send({ message: "invald email or password api called" });
-  })
-);
+    let success = false;
+    const { email, password } = req.body;
+    try {
+      let user = await User.findOne({ email });
 
-userRouter.get(
-  "/profile",
-  fetchuser,
-  expressAsyncHandler(async (req, res) => {
-    let userId=req.user.id;
-    res.send(userId);
-  })
+      if (!user) {
+        return res
+          .status(400)
+          .json({ error: "Please try to login with correct credentials" });
+      }
+
+      const passwordCompare = await bcrypt.compare(password, user.password);
+
+      if (!passwordCompare) {
+        return res
+          .status(400)
+          .json({ error: "Please try to login with correct credentials" });
+      }
+
+      const data = {
+        user: {
+          id: user.id,
+        },
+      };
+      const token = jwt.sign(data, JWT_SECRET);
+      if (token) {
+        success = true;
+      }
+
+      res.json({ 
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        isAdmin: user.isAdmin,
+        token:token,
+        createdAt: user.createdAt,
+       });
+    } catch (error) {
+      console.error(error.message);
+      res.status(500).send("Internal Server error");
+    }
+  }
 );
 
 //Creating route to register a user
@@ -77,19 +105,20 @@ userRouter.post(
           id: user.id,
         },
       };
-      const authToken = jwt.sign(data, JWT_SECRET);
+      const token = jwt.sign(data, JWT_SECRET);
 
-      res.json({ authToken });
+      res.json({ token });
     } catch (error) {
       console.error(error.message);
       res.status(500).send("Internal Server error");
     }
   }
-)
+);
 
+//getting a user's details by user himself
 userRouter.get("/getuser", fetchuser, async (req, res) => {
   try {
-     const userId = req.user.id;
+    const userId = req.user.id;
     const user = await User.findById(userId).select("-password");
     res.send(user);
   } catch (error) {
@@ -98,6 +127,18 @@ userRouter.get("/getuser", fetchuser, async (req, res) => {
   }
 });
 
+// getting all users for admin only
+userRouter.get("/getallusers", fetchadmin, async (req, res) => {
+  try {
+    const users = await User.find({}).select("-password");
+    res.send(users);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Internal Server error");
+  }
+});
+
+// seeding users through .js file
 userRouter.post(
   "/seed",
   expressAsyncHandler(async (req, res) => {
