@@ -71,7 +71,7 @@ export const listUser = () => async (dispatch,getState) => {
       },
     };
 
-    const { data } = await axios.get('/api/users',config);
+    const { data } = await axios.get('http://localhost:5000/api/getallusers',config);
 
     dispatch({
       type: USER_LIST_SUCCESS,
